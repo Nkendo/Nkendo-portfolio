@@ -7,22 +7,16 @@
     name="description"
     content="Portfolio de Nkendo Junior, Aspiring Full Stack Developer."
   />
-
-  <!-- ✅ FIX 1: CSP meta tag — allows images from same origin + data URIs -->
-  <meta
-    http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
-  />
-
   <title>Nkendo Junior — Portfolio</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 
-  <!-- Favicon — primary + shortcut fallback -->
+  <!-- Favicon — .ico at root stops the browser's silent /favicon.ico request -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/jpeg" href="assets/images/tnk.jpeg" />
-  <link rel="shortcut icon" href="assets/images/tnk.jpeg" />
+  <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
 
@@ -104,7 +98,7 @@
   <!-- JS -->
   <script src="js/script.js"></script>
 
-  <!-- ✅ FIX 2: Burger menu toggle (inline fallback — move to script.js if preferred) -->
+  <!-- Burger menu toggle -->
   <script>
     const burger = document.querySelector('.navbar__burger');
     const navLinks = document.querySelector('.navbar__links');
@@ -115,7 +109,7 @@
       burger.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close menu when a nav link is clicked (good UX on mobile)
+    // Close menu when a nav link is clicked
     document.querySelectorAll('.navbar__links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('navbar__links--open');
